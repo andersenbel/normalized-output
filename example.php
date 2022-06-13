@@ -14,4 +14,6 @@ $input = [
 ];
 
 $normalizedOutput = new NormalizedOutput(NUMBER_SCREEN_CHARS, CHAR_POINT);
-$normalizedOutput->outNormalized($input);
+if (!$normalizedOutput->outNormalized($input)) {
+    echo "Error: found not  float number!\n";
+}

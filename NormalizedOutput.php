@@ -48,7 +48,8 @@ class NormalizedOutput {
                     $precision = strlen(substr(strrchr(strval($one), "."), 1));
                 }
             } else {
-                throw new Exception("Error: $one is not float, exit!\n");
+                // throw new Exception("Error: $one is not float, exit!\n");
+                return false;
             }
         }
         $precision = pow(10, $precision);
