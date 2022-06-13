@@ -18,7 +18,7 @@ class NormalizedOutput {
         $this->setChar($char);
     }
 
-    public function setnumberConsoleChars($numberConsoleChars) {
+    public function setnumberConsoleChars($numberConsoleChars = 80) {
         $this->numberConsoleChars = $numberConsoleChars;
     }
 
@@ -26,7 +26,7 @@ class NormalizedOutput {
         return $this->numberConsoleChars;
     }
 
-    public function setChar($char) {
+    public function setChar($char = '*') {
         $this->char = $char;
     }
 
@@ -40,7 +40,7 @@ class NormalizedOutput {
      * 
      * @param  array - array of float numbers
      */
-    public function outNormalized(&$inputSet) {
+    public function outNormalized(&$inputSet = []) {
         $precision = 0;
         foreach ($inputSet as $one) {
             if (is_float($one)) {
@@ -64,5 +64,6 @@ class NormalizedOutput {
                 echo "$new_line\n";
             }
         }
+        return true;
     }
 }
