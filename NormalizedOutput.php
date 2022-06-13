@@ -48,19 +48,18 @@ class NormalizedOutput {
                     $precision = strlen(substr(strrchr(strval($one), "."), 1));
                 }
             } else {
-                echo "Error: $one is not float, exit!\n";
-                exit;
+                throw new Exception("Error: $one is not float, exit!\n");
             }
         }
         $precision = pow(10, $precision);
-        $max_input = max($inputSet) * $precision;
-        $min_input = min($inputSet) * $precision;
-        $dx = ($max_input - $min_input) / $this->getNumberConsoleeChars();
+        $maxInput = max($inputSet) * $precision;
+        $minInput = min($inputSet) * $precision;
+        $dx = ($maxInput - $minInput) / $this->getNumberConsoleeChars();
         $patternStr = '';
         for ($i = 0; $i < $this->getNumberConsoleeChars() + 1; $i++) $patternStr .= ' ';
         foreach ($inputSet as $in) {
             if (is_float($in)) {
-                $one = round(($in * $precision - $min_input) / $dx) + 1;
+                $one = round(($in * $precision - $minInput) / $dx) + 1;
                 $new_line = substr($patternStr, 0, $one - 1) . $this->getChar() . substr($patternStr, $one);
                 echo "$new_line\n";
             }
